@@ -1,0 +1,17 @@
+---
+apiVersion: kadalu-operator.storage/v1alpha1
+kind: KadaluStorage
+metadata:
+  # This will be used as name of PV Hosting Volume
+  name: storage-pool-neb
+spec:
+  type: Replica1
+  storage:
+    - node: server-09
+      device: /dev/sdb
+    - node: server-10
+      device: /dev/sdb
+    - node: server-11
+      device: /dev/sdb
+    - node: server-12
+      device: /dev/sdb

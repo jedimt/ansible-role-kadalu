@@ -1,0 +1,32 @@
+---
+# tasks file for ansible-role-kadula
+# Install Kadalu tasks
+- name: Check for existing Kadalu plugin
+  ansible.builtin.command:
+    kubectl kadalu version
+  register: kadalu_plugin_check
+  changed_when: false
+  failed_when: kadalu_plugin_check.rc > 1
+
+- name: Get Kadalu install script
+  ansible.builtin.get_url:
+    url: https://github.com/kadalu/kadalu/releases/latest/download/install.sh
+    dest: "{{ ansible_env.HOME }}"
+    mode: '0744'
+  register: install_script
+  when: kadalu_version not in kadalu_plugin_check.stdout
+
+- name: Install Kadalu plugin
+  ansible.builtin.command:
+    "{{ install_script.dest }}"
+  changed_when: true
+  when: kadalu_version not in kadalu_plugin_check.stdout
+
+- name: Install Kadalu operator
+  ansible.builtin.command:
+    kubectl kadalu install
+  changed_when: true
+  when: kadalu_version not in kadalu_plugin_check.stdout
+
+# Configure Kadalu tasks
+
