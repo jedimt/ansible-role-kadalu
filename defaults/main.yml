@@ -1,2 +1,11 @@
 ---
 # defaults file for ansible-role-kadula
+
+# Version to install
+kadalu_version: "1.0.0"
+
+# Name for the storage pool to create
+storage_pool_name: "storage-pool-neb"
+
+# type = Replica[1,2,3], Disperse
+kadalu_pool_type: Replica3
