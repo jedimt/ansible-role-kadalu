@@ -1,3 +1,8 @@
 ---
 # vars file for ansible-role-kadula
 kadalu_version: "1.0.0"
+
+storage_pool_name: "storage-pool-neb"
+
+# type = Replica[1,2,3], Disperse
+kadalu_pool_type: Replica3

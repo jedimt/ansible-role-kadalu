@@ -1,0 +1,16 @@
+---
+apiVersion: kadalu-operator.storage/v1alpha1
+kind: KadaluStorage
+metadata:
+  # This will be used as name of PV Hosting Volume
+  name: "{{ storage_pool_name }}"
+spec:
+  # type = Replica[1,2,3], Disperse
+  type: "{{ kadalu_pool_type }}"
+  storage:
+    - node: server-10
+      device: "{{ hostvars[groups['k8s_nodes'][0]]['available_linux_devices'] }}"
+    - node: server-11
+      device: "{{ hostvars[groups['k8s_nodes'][1]]['available_linux_devices'] }}"
+    - node: server-12
+      device: "{{ hostvars[groups['k8s_nodes'][2]]['available_linux_devices'] }}"

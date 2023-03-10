@@ -6,7 +6,7 @@ A brief description of the role goes here.
 Requirements
 ------------
 
-Hosts require the `sg3_utils` package to provide the `rescan-scsi-bus.sh` script.
+Running K8s cluster.
 
 Role Variables
 --------------
