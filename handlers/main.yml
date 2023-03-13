@@ -1,0 +1,12 @@
+---
+# handlers file for ansible-role-kadalu
+
+- name: Apply Kadalu storage pool configuration
+  ansible.builtin.command:
+    kubectl apply -f "{{ ansible_env.HOME }}/kadalu_storage_pool.yml"
+  register: kadalu_sp_result
+
+- name: Apply Kadalu sample application manifest
+  ansible.builtin.command:
+    kubectl apply -f "{{ ansible_env.HOME }}/kadalu_sample_app.yml"
+  register: kadalu_app_result
