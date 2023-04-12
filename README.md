@@ -1,7 +1,7 @@
 Ansible Role: Kadalu Install
 =========
 
-Install and configure the Kadalu project
+Install and configure the Kadalu project. Still WIP, many to-do items remain.
 
 Requirements
 ------------
@@ -44,7 +44,7 @@ Example Playbook
         - "../../credentials.yml"
 
       roles:
-        - { role: ansible-role-kadalu, npod_name: "K8s_Lenovo" }
+        - { role: jedimt.kadalu, npod_name: "K8s_Lenovo" }
 
 License
 -------
