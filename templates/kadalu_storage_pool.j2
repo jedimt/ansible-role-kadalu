@@ -9,8 +9,8 @@ spec:
   type: "{{ kadalu_pool_type }}"
   storage:
     - node: server-10
-      device: "{{ hostvars[groups['k8s_nodes'][0]]['available_linux_devices'] | join("") }}"
+      device: "{{ hostvars[groups['k8s_nodes'][0]]['available_linux_devices'] }}"
     - node: server-11
-      device: "{{ hostvars[groups['k8s_nodes'][1]]['available_linux_devices'] | join("") }}"
+      device: "{{ hostvars[groups['k8s_nodes'][1]]['available_linux_devices'] }}"
     - node: server-12
-      device: "{{ hostvars[groups['k8s_nodes'][2]]['available_linux_devices'] | join("") }}"
+      device: "{{ hostvars[groups['k8s_nodes'][2]]['available_linux_devices'] }}"
